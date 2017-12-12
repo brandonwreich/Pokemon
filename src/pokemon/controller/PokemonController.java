@@ -1,5 +1,7 @@
 package pokemon.controller;
 
+import pokemon.view.PokemonPanel;
+
 /**
  * 
  * @author Brandon Reich
