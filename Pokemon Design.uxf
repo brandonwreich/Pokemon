@@ -82,6 +82,8 @@ methods</panel_attributes>
 + freeze() : int
 + bite() : int
 + shield() : int
+
+bg=blue
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -98,7 +100,8 @@ methods</panel_attributes>
 + annoy(int) : String
 + sayDerp() : String
 + derpDerpDerp() : Void
-</panel_attributes>
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -115,6 +118,8 @@ methods</panel_attributes>
 + scorch() : int
 + blind() : int
 + sizzle() : int
+
+bg=red
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -131,6 +136,7 @@ methods</panel_attributes>
 + scare() : int
 + disappear() : boolean
 + possess(int) : boolean
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -148,6 +154,10 @@ methods</panel_attributes>
 --
 + height() : int
 
+fg=white
+bg=blue
+
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -163,7 +173,11 @@ methods</panel_attributes>
 --
 + Froslass()
 --
-+ height() : int</panel_attributes>
++ height() : int
+
+fg=white
+bg=red
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -180,7 +194,9 @@ methods</panel_attributes>
 --
 + height() : int
 + weight() : int
-+ pokeDecColor() : String</panel_attributes>
++ pokeDecColor() : String
+
+bg=red</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -193,7 +209,9 @@ methods</panel_attributes>
     </coordinates>
     <panel_attributes>pokemon :: TissueBox
 --
-+ TissueBox()</panel_attributes>
++ TissueBox()
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -227,7 +245,9 @@ methods</panel_attributes>
 --
 + height() : int
 + weight() : int
-+ pokeDecColor() : String</panel_attributes>
++ pokeDecColor() : String
+
+bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -244,28 +264,6 @@ methods</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>387</x>
-      <y>594</y>
-      <w>126</w>
-      <h>171</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;120.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>486</x>
-      <y>594</y>
-      <w>315</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>330.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>369</x>
       <y>324</y>
       <w>54</w>
@@ -273,28 +271,6 @@ methods</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>40.0;10.0;10.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>180</x>
-      <y>495</y>
-      <w>216</w>
-      <h>162</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;160.0;220.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>369</x>
-      <y>495</y>
-      <w>36</w>
-      <h>270</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>20.0;280.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -310,17 +286,6 @@ methods</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>171</x>
-      <y>441</y>
-      <w>72</w>
-      <h>216</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;220.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>495</x>
       <y>324</y>
       <w>90</w>
@@ -328,28 +293,6 @@ methods</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>585</x>
-      <y>486</y>
-      <w>234</w>
-      <h>180</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>240.0;180.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>414</x>
-      <y>540</y>
-      <w>405</w>
-      <h>225</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;230.0;430.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -365,17 +308,6 @@ methods</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>63</x>
-      <y>522</y>
-      <w>585</w>
-      <h>243</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>630.0;250.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>72</x>
       <y>270</y>
       <w>234</w>
@@ -383,5 +315,104 @@ methods</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>240.0;10.0;40.0;80.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>72</x>
+      <y>522</y>
+      <w>576</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>620.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>441</y>
+      <w>63</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;220.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>495</y>
+      <w>225</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;160.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>495</y>
+      <w>27</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>387</x>
+      <y>594</y>
+      <w>117</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;170.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>18</x>
+      <y>18</y>
+      <w>171</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>594</y>
+      <w>216</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>220.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>414</x>
+      <y>540</y>
+      <w>405</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;230.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>585</x>
+      <y>486</y>
+      <w>234</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;180.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
