@@ -11,28 +11,28 @@ public class Marowak extends Pokemon implements Fire, Ghost
 		super(number, name);
 	}
 	
-	public int Scorch(int burn)
+	public int Scorch()
 	{
 		int burnDegree = 213151;
 
 		return burnDegree;
 	}
 
-	public int blind(int flash)
+	public int blind()
 	{
 		int brightness = 12;
 
 		return brightness;
 	}
 
-	public int sizzle(int sss)
+	public int sizzle()
 	{
 		int heat = 456;
 
 		return heat;
 	}
 
-	public int toats(int toasty)
+	public int toast()
 	{
 		int toastness = 231;
 

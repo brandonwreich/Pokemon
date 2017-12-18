@@ -42,11 +42,6 @@ public class Froslass extends Pokemon implements Ghost, Ice
 		return didPossess;
 	}
 	
-	public Beartic(int number, String name)
-	{
-		super(number, name);
-	}
-	
 	public int freeze()
 	{
 		int cold = -45;
