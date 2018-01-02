@@ -46,13 +46,23 @@ public class PokemonPanel extends JPanel
 	private JPanel fourthType;
 	
 	
+	private void updatePokedexInfo(int index)
+	{
+		nameField.setText(appController.getPokedex().get(index).getName());
+		canEvolveBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
+		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
+		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
+		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
+		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
+	}
+	
 	public PokemonPanel(PokemonController appController)
 	{
 		super();
 		this.appController = appController;
 		appLayout = new SpringLayout();
 		
-		pictureLabel = new JLabel("");
+		pictureLabel = new JLabel(getName());
 		numberLabel = new JLabel("Number");
 		evolveLabel = new JLabel("Can Evolve");
 		healthLabel = new JLabel("Health");
