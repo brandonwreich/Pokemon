@@ -1,7 +1,13 @@
 package pokemon.view;
 
 import pokemon.controller.PokemonController;
+import pokemon.model.Pokemon;
+
 import javax.swing.JPanel;
+
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.*;
 
 /**
@@ -13,6 +19,7 @@ import javax.swing.*;
 public class PokemonPanel extends JPanel
 {
 	private PokemonController appController;
+	private SpringLayout appLayout;
 	
 	private JLabel pictureLabel;
 	private JLabel numberLabel;
@@ -38,8 +45,6 @@ public class PokemonPanel extends JPanel
 	
 	private JComboBox pokedexDropdown;
 	
-	private SpringLayout appLayout;
-	
 	private JPanel firstType;
 	private JPanel secondType;
 	private JPanel thirdType;
@@ -62,12 +67,37 @@ public class PokemonPanel extends JPanel
 		this.appController = appController;
 		appLayout = new SpringLayout();
 		
+		//Labels
 		pictureLabel = new JLabel(getName());
 		numberLabel = new JLabel("Number");
-		evolveLabel = new JLabel("Can Evolve");
-		healthLabel = new JLabel("Health");
-		attackLabel = new JLabel("Attack");
+		nameLabel = new JLabel("Name");
 		
+		evolveLabel = new JLabel("Can Evolve");
+		healthLabel = new JLabel("Health");	
+		attackLabel = new JLabel("Attack");
+		modifierLabel = new JLabel("Enhancment Modifier");
+		
+		
+		//TextFields
+		numberField = new JTextField(20);
+		nameField = new JTextField(20);
+		healthField = new JTextField(20);
+		attackField = new JTextField(20);
+		modifierField = new JTextField(20);
+		
+		//TextAreas
+		descriptionArea = new JTextArea(10, 25);
+		typeArea = new JTextArea(10, 25);
+		
+		//Buttons
+		saveButton = new JButton("Save");
+		resetButton = new JButton("Reset");
+		
+		//Check box
+		canEvolveBox = new JCheckBox();
+		
+		//Combo Box
+		pokedexDropdown = new JComboBox<Pokemon>();
 		
 		setupPanel();
 		setupLayout();
@@ -76,11 +106,51 @@ public class PokemonPanel extends JPanel
 	
 	private void setupPanel()
 	{
+		this.setLayout(appLayout);
 		
+		//Labels
+		this.add(pictureLabel);
+		this.add(numberLabel);
+		this.add(nameLabel);
+		this.add(evolveLabel);
+		this.add(healthLabel);
+		this.add(attackLabel);
+		this.add(modifierLabel);
+		
+//		//Text Fields
+//		this.add(numberField);
+//		this.add(nameField);
+//		this.add(healthField);
+//		this.add(attackField);
+//		this.add(modifierField);
+//		
+//		//Text Areas
+//		this.add(descriptionArea);
+//		this.add(typeArea);
+//		
+//		//Buttons
+//		this.add(saveButton);
+//		this.add(resetButton);
+//		
+//		//Check Box
+//		this.add(canEvolveBox);
+//		
+//		//Combo Box
+//		this.add(pokedexDropdown);
 	}
 	
 	private void setupLayout()
 	{
+		//Name Label
+		nameLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
+		nameLabel.setEnabled(true);
+		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, nameLabel, -120, SpringLayout.EAST, this);
+		
+		//Number Label
+		numberLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
+		numberLabel.setEnabled(false);
+		
 		
 	}
 	

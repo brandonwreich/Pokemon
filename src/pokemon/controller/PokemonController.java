@@ -1,6 +1,10 @@
 package pokemon.controller;
 
 import pokemon.view.PokemonPanel;
+import pokemon.model.Pokemon;
+
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * 
@@ -10,8 +14,49 @@ import pokemon.view.PokemonPanel;
  */
 public class PokemonController
 {
+	private List<Pokemon> pokedex;
+	
 	public void start()
 	{
 		
+	}
+	
+	public List<Pokemon> getPokedex()
+	{
+		return pokedex;
+	}
+	
+	public boolean isValidInteger(String input)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(input);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only integer values are vaild: " + input + " is not.");
+		}
+		
+		return valid;
+	}
+	
+	public boolean isValidDouble(String input)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(input);
+			valid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			popup.displayText("Only double values are valid: " + input + " is not.");
+		}
+		
+		return false;
 	}
 }
