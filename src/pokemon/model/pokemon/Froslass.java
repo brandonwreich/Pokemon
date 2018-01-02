@@ -6,9 +6,22 @@ import pokemon.model.types.Ice;
 
 public class Froslass extends Pokemon implements Ghost, Ice
 {
+	public Froslass()
+	{
+		super(478, "Froslass");
+		setup();
+	}
+	
+	public Froslass(String name)
+	{
+		super(478, name);
+		setup();
+	}
+	
 	public Froslass(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	
 	public int scare(String booAmount)
@@ -61,5 +74,13 @@ public class Froslass extends Pokemon implements Ghost, Ice
 		int iceShield = 454646;
 		
 		return iceShield;
+	}
+	
+	public void setup()
+	{
+		this.setAttackPoints(456);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.99);
+		this.setHealthPoints(1500);
 	}
 }

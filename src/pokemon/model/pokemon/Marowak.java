@@ -6,9 +6,22 @@ import pokemon.model.types.Ghost;
 
 public class Marowak extends Pokemon implements Fire, Ghost
 {
+	public Marowak()
+	{
+		super(105, "Marowak");
+		setup();
+	}
+	
+	public Marowak(String name)
+	{
+		super(105, name);
+		setup();
+	}
+	
 	public Marowak(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	
 	public int Scorch()
@@ -68,5 +81,13 @@ public class Marowak extends Pokemon implements Fire, Ghost
 		boolean didPossess = false;
 		
 		return didPossess;
+	}
+	
+	private void setup()
+	{
+		this.setAttackPoints(500);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.99);
+		this.setHealthPoints(1000);
 	}
 }

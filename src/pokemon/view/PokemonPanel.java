@@ -20,23 +20,30 @@ public class PokemonPanel extends JPanel
 	private JLabel evolveLabel;
 	private JLabel healthLabel;
 	private JLabel attackLabel;
+	private JLabel modifierLabel;
 	
-	private JTextArea numberArea;
-	private JTextArea nameArea;
-	private JTextArea healthArea;
-	private JTextArea attackArea;
-	private JTextArea textArea;
-	private JTextArea textArea2;
+	private JTextField numberField;
+	private JTextField nameField;
+	private JTextField healthField;
+	private JTextField attackField;
+	private JTextField modifierField;
 	
-	private JButton loadButton;
+	private JTextArea descriptionArea;
+	private JTextArea typeArea;
+	
 	private JButton saveButton;
 	private JButton resetButton;
 	
 	private JCheckBox canEvolveBox;
 	
-	private JComboBox comboBox;
+	private JComboBox pokedexDropdown;
 	
 	private SpringLayout appLayout;
+	
+	private JPanel firstType;
+	private JPanel secondType;
+	private JPanel thirdType;
+	private JPanel fourthType;
 	
 	
 	public PokemonPanel(PokemonController appController)
@@ -50,9 +57,6 @@ public class PokemonPanel extends JPanel
 		evolveLabel = new JLabel("Can Evolve");
 		healthLabel = new JLabel("Health");
 		attackLabel = new JLabel("Attack");
-		
-		numberArea = new JTextArea(5, 5);
-		nameArea = new JTextArea(5, 5);
 		
 		
 		setupPanel();

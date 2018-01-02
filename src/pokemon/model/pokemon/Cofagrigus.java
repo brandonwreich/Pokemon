@@ -3,11 +3,24 @@ package pokemon.model.pokemon;
 import pokemon.model.Pokemon;
 import pokemon.model.types.Ghost;
 
-public class Cofarigus extends Pokemon implements Ghost
+public class Cofagrigus extends Pokemon implements Ghost
 {
-	public Cofarigus(int number, String name)
+	public Cofagrigus()
+	{
+		super(563, "Cofarigus");
+		setup();
+	}
+	
+	public Cofagrigus(String name)
+	{
+		super(563, name);
+		setup();
+	}
+	
+	public Cofagrigus(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	
 	public int scare(String booAmount)
@@ -39,5 +52,13 @@ public class Cofarigus extends Pokemon implements Ghost
 		boolean didPossess = false;
 		
 		return didPossess;
+	}
+	
+	public void setup()
+	{
+		this.setAttackPoints(214);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.89);
+		this.setHealthPoints(450);
 	}
 }

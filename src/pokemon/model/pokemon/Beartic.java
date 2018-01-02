@@ -5,9 +5,22 @@ import pokemon.model.types.Ice;
 
 public class Beartic extends Pokemon implements Ice
 {
+	public Beartic()
+	{
+		super(614, "Beartic");
+		setup();
+	}
+	
+	public Beartic(String name)
+	{
+		super(614, name);
+		setup();
+	}
+	
 	public Beartic(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	
 	public int freeze()
@@ -29,5 +42,13 @@ public class Beartic extends Pokemon implements Ice
 		int iceShield = 454646;
 		
 		return iceShield;
+	}
+	
+	public void setup()
+	{
+		this.setAttackPoints(253);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.22);
+		this.setHealthPoints(144);
 	}
 }

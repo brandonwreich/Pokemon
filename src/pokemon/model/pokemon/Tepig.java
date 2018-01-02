@@ -3,21 +3,21 @@ package pokemon.model.pokemon;
 import pokemon.model.Pokemon;
 import pokemon.model.types.Fire;
 
-public class Charmander extends Pokemon implements Fire
+public class Tepig extends Pokemon implements Fire
 {
-	public Charmander()
+	Tepig()
 	{
-		super(004, "Charmander");
+		super(498, "Tepig");
 		setup();
 	}
 	
-	public Charmander(String name)
+	Tepig(String name)
 	{
-		super(004, name);
+		super(498, name);
 		setup();
 	}
 	
-	public Charmander(int number, String name)
+	Tepig(int number, String name)
 	{
 		super(number, name);
 		setup();
@@ -25,37 +25,38 @@ public class Charmander extends Pokemon implements Fire
 
 	public int Scorch()
 	{
-		int burnDegree = 213151;
-
+		int burnDegree = 522252;
+		
 		return burnDegree;
 	}
 
 	public int blind()
 	{
 		int brightness = 12;
-
+		
 		return brightness;
 	}
 
 	public int sizzle()
 	{
 		int heat = 456;
-
+		
 		return heat;
 	}
 
 	public int toast()
 	{
 		int toastness = 231;
-
+		
 		return toastness;
 	}
 	
-	public void setup()
+	protected void setup()
 	{
-		this.setAttackPoints(200);
-		this.setCanEvolve(false);
-		this.setHealthPoints(500);
-		this.setEnhancementModifier(.45);
+		this.setAttackPoints(45);
+		this.setCanEvolve(true);
+		this.setEnhancementModifier(.23);
+		this.setHealthPoints(100);
 	}
+			
 }

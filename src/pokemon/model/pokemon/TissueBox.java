@@ -5,9 +5,22 @@ import pokemon.model.types.Derptastic;
 
 public class TissueBox extends Pokemon implements Derptastic
 {
+	public TissueBox()
+	{
+		super(999, "Sniffles");
+		setup();
+	}
+	
+	public TissueBox(String name)
+	{
+		super(999, name);
+		setup();
+	}
+	
 	public TissueBox(int number, String name)
 	{
 		super(number, name);
+		setup());
 	}
 	
 	public int annoy(int level)
@@ -25,5 +38,13 @@ public class TissueBox extends Pokemon implements Derptastic
 	public void derpDerpDerp()
 	{
 		
+	}
+	
+	public void setup()
+	{
+		this.setAttackPoints(1);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.01);
+		this.setHealthPoints(2);
 	}
 }
