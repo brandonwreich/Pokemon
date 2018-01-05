@@ -85,19 +85,22 @@ public class PokemonPanel extends JPanel
 
 		
 		//TextAreas
-		descriptionArea = new JTextArea(10, 25);
-		typeArea = new JTextArea(10, 25);
+		descriptionArea = new JTextArea(5, 15);
+		typeArea = new JTextArea(5, 15);
+
 		
 		//Buttons
 		saveButton = new JButton("Save");
 		resetButton = new JButton("Reset");
+
 		
 		//Check box
 		canEvolveBox = new JCheckBox();
 
 		
 		//Combo Box
-		pokedexDropdown = new JComboBox<Pokemon>();
+//		pokedexDropdown = new JComboBox<Pokemon>();
+
 		
 		setupPanel();
 		setupLayout();
@@ -124,19 +127,19 @@ public class PokemonPanel extends JPanel
 		this.add(healthField);
 		this.add(modifierField);
 		
-//		//Text Areas
-//		this.add(descriptionArea);
-//		this.add(typeArea);
-//		
-//		//Buttons
-//		this.add(saveButton);
-//		this.add(resetButton);
-//		
+		//Text Areas
+		this.add(descriptionArea);
+		this.add(typeArea);
+		
+		//Buttons
+		this.add(saveButton);
+		this.add(resetButton);
+		
 		//Check Box
 		this.add(canEvolveBox);
-//		
-//		//Combo Box
-//		this.add(pokedexDropdown);
+		
+		//Combo Box
+		this.add(pokedexDropdown);
 	}
 	
 	private void setupLayout()
@@ -156,6 +159,7 @@ public class PokemonPanel extends JPanel
 		//Evolve Label
 		evolveLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		evolveLabel.setEnabled(false);
+		
 		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, -180, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, -11, SpringLayout.NORTH, attackLabel);
 		
@@ -180,30 +184,35 @@ public class PokemonPanel extends JPanel
 		//Name Text Field
 		nameField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		nameField.setEnabled(false);
+		nameField.setToolTipText("Name");
 		appLayout.putConstraint(SpringLayout.EAST, nameField, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, nameField, 5, SpringLayout.NORTH, this);
 		
 		//Number Field
 		numberField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		numberField.setEnabled(false);
+		numberField.setToolTipText("Poke Number");
 		appLayout.putConstraint(SpringLayout.NORTH, numberField, 6, SpringLayout.SOUTH, nameField);
 		appLayout.putConstraint(SpringLayout.WEST, numberField, 0, SpringLayout.WEST, nameField);
 		
 		//Attack Field
 		attackField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		attackField.setEnabled(false);
+		attackField.setToolTipText("Attack Points");
 		appLayout.putConstraint(SpringLayout.NORTH, attackField, 28, SpringLayout.SOUTH, numberField);
 		appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 5, SpringLayout.NORTH, attackField);
 		
 		//Health Field
 		healthField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		healthField.setEditable(false);
+		healthField.setToolTipText("Helath Points");
 		appLayout.putConstraint(SpringLayout.EAST, healthField, 0, SpringLayout.EAST, nameField);
 		appLayout.putConstraint(SpringLayout.NORTH, healthField, 6, SpringLayout.SOUTH, attackField);
 		
 		//Enhancement Modifier Field
 		modifierField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		modifierField.setEnabled(false);	
+		modifierField.setEnabled(false);
+		modifierField.setToolTipText("Enhancment Modifier");
 		appLayout.putConstraint(SpringLayout.NORTH, modifierField, 6, SpringLayout.SOUTH, healthField);
 		appLayout.putConstraint(SpringLayout.EAST, modifierField, 0, SpringLayout.EAST, nameField);
 		
@@ -215,11 +224,49 @@ public class PokemonPanel extends JPanel
 		descriptionArea.setLineWrap(true);
 		descriptionArea.setDisabledTextColor(Color.BLACK);
 		descriptionArea.setBackground(Color.WHITE);
+		descriptionArea.setToolTipText("Description");
+		appLayout.putConstraint(SpringLayout.NORTH, descriptionArea, 35, SpringLayout.SOUTH, modifierField);
+		appLayout.putConstraint(SpringLayout.EAST, descriptionArea, -48, SpringLayout.EAST, this);
+		
+		//Type Area
+		typeArea.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
+		typeArea.setEditable(false);
+		typeArea.setEnabled(false);
+		typeArea.setWrapStyleWord(true);
+		typeArea.setLineWrap(true);
+		typeArea.setDisabledTextColor(Color.BLACK);
+		typeArea.setBackground(Color.WHITE);
+		appLayout.putConstraint(SpringLayout.NORTH, typeArea, 0, SpringLayout.NORTH, descriptionArea);
+		appLayout.putConstraint(SpringLayout.WEST, typeArea, 48, SpringLayout.WEST, this);
 		
 		//Can Evolve Check Box
 		canEvolveBox.setEnabled(false);
+		
+		if (canEvolveBox.isSelected())
+		{
+			canEvolveBox.setToolTipText("Can Evolve");
+		}
+		else
+		{
+			canEvolveBox.setToolTipText("Can't Evolve");
+		}
+		
 		appLayout.putConstraint(SpringLayout.WEST, canEvolveBox, 0, SpringLayout.WEST, nameField);
 		appLayout.putConstraint(SpringLayout.SOUTH, canEvolveBox, 25, SpringLayout.SOUTH, numberField);
+		
+		//Reset Button
+		resetButton.setEnabled(true);
+		resetButton.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
+		resetButton.setToolTipText("Reset");
+		appLayout.putConstraint(SpringLayout.NORTH, resetButton, 0, SpringLayout.NORTH, saveButton);
+		appLayout.putConstraint(SpringLayout.WEST, resetButton, 10, SpringLayout.WEST, this);
+		
+		//Save Button
+		saveButton.setEnabled(true);
+		saveButton.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
+		saveButton.setToolTipText("Save");
+		appLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, modifierLabel);
+		appLayout.putConstraint(SpringLayout.EAST, saveButton, -27, SpringLayout.WEST, modifierLabel);
 	}
 	
 	private void setupListeners()
