@@ -1,6 +1,6 @@
 package pokemon.controller;
 
-import pokemon.view.PokemonPanel;
+import pokemon.view.*;
 import pokemon.model.Pokemon;
 
 import java.util.List;
@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class PokemonController
 {
 	private List<Pokemon> pokedex;
+	private PopupDisplay popup;
+	private PokemonFrame appFrame;
 	
 	public void start()
 	{
@@ -57,6 +59,6 @@ public class PokemonController
 			popup.displayText("Only double values are valid: " + input + " is not.");
 		}
 		
-		return false;
+		return valid;
 	}
 }
