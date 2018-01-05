@@ -20,7 +20,7 @@ public class TissueBox extends Pokemon implements Derptastic
 	public TissueBox(int number, String name)
 	{
 		super(number, name);
-		setup());
+		setup();
 	}
 	
 	public int annoy(int level)
