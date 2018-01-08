@@ -48,23 +48,6 @@ public class PokemonPanel extends JPanel
 
 	private JPanel firstType;
 	private JPanel secondType;
-	private JPanel thirdType;
-	private JPanel fourthType;
-
-	private void updatePokedexInfo(int index)
-	{
-		nameField.setText(appController.getPokedex().get(index).getName());
-		canEvolveBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
-		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
-		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
-		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
-		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
-	}
-	
-	private void setupComboBox()
-	{
-		
-	}
 
 	public PokemonPanel(PokemonController appController)
 	{
@@ -103,10 +86,34 @@ public class PokemonPanel extends JPanel
 		// Combo Box
 		pokedexDropdown = new JComboBox<Pokemon>();
 
+		
 		setupComboBox();
+		setupTypePanels();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+
+	private void updatePokedexInfo(int index)
+	{
+		nameField.setText(appController.getPokedex().get(index).getName());
+		canEvolveBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
+		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
+		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
+		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
+		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
+		descriptionArea.setText(appController.getPokedex().get(index).toString());
+	}
+
+	private void setupComboBox()
+	{
+		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel(appController.convertPokedex());
+		pokedexDropdown.setModel(pokemonModel);
+	}
+
+	private void setupTypePanels()
+	{
+		
 	}
 
 	private void setupPanel()
@@ -143,6 +150,41 @@ public class PokemonPanel extends JPanel
 
 		// Combo Box
 		this.add(pokedexDropdown);
+	}
+
+	private void updateImage()
+	{
+
+	}
+
+	private void updateTypePanels()
+	{
+		String[] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
+
+		if (types[0].equals("Fighting"))
+		{
+			firstType.setBackground(Color.RED);
+		}
+		else if (types[0].equals("Fire"))
+		{
+			firstType.setBackground(Color.ORANGE);
+		}
+		else if (types[0].equals("Ghost"))
+		{
+			firstType.setBackground(Color.DARK_GRAY);
+		}
+		else if (types[0].equals("Ice"))
+		{
+			firstType.setBackground(Color.BLUE);
+		}
+
+		if (types.length > 1)
+		{
+			if (types[1].equals("Fighting"))
+			{
+				secondType.setBackground(new Color(235, 78, 57));
+			}
+		}
 	}
 
 	private void setupLayout()
@@ -244,16 +286,16 @@ public class PokemonPanel extends JPanel
 
 		// Can Evolve Check Box
 		canEvolveBox.setEnabled(false);
-
-		if (canEvolveBox.isSelected())
+		
+		if (canEvolveBox.isSelected() == true)
 		{
 			canEvolveBox.setToolTipText("Can Evolve");
 		}
-		else
+		else 
 		{
 			canEvolveBox.setToolTipText("Can't Evolve");
 		}
-
+		
 		appLayout.putConstraint(SpringLayout.WEST, canEvolveBox, 0, SpringLayout.WEST, nameField);
 		appLayout.putConstraint(SpringLayout.SOUTH, canEvolveBox, 25, SpringLayout.SOUTH, numberField);
 
@@ -272,6 +314,9 @@ public class PokemonPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, saveButton, -27, SpringLayout.WEST, modifierLabel);
 
 		// JCombo Box
+		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, pictureLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, pokedexDropdown, -6, SpringLayout.NORTH, saveButton);
+		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, -10, SpringLayout.EAST, saveButton);
 
 	}
 
@@ -287,6 +332,7 @@ public class PokemonPanel extends JPanel
 		});
 
 		resetButton.addActionListener(new ActionListener()
+
 		{
 
 			public void actionPerformed(ActionEvent click)
@@ -295,12 +341,17 @@ public class PokemonPanel extends JPanel
 			}
 
 		});
+		
 		pokedexDropdown.addActionListener(new ActionListener()
 		{
 
-			public void actionPerformed(ActionEvent click)
+			public void actionPerformed(ActionEvent selection)
 			{
-
+				int selectedPokemonIndex = pokedexDropdown.getSelectedIndex();
+				updatePokedexInfo(selectedPokemonIndex);
+				updateImage();
+				updateTypePanels();
+				repaint();
 			}
 		});
 	}

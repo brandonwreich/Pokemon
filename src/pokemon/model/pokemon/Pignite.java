@@ -1,8 +1,9 @@
 package pokemon.model.pokemon;
 
 import pokemon.model.types.Fighting;
+import pokemon.model.types.Fire;
 
-public class Pignite extends Tepig implements Fighting
+public class Pignite extends Tepig implements Fire, Fighting
 {
 	public Pignite()
 	{

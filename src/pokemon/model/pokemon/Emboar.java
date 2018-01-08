@@ -1,6 +1,9 @@
 package pokemon.model.pokemon;
 
-public class Emboar extends Pignite
+import pokemon.model.types.Fighting;
+import pokemon.model.types.Fire;
+
+public class Emboar extends Pignite implements Fire, Fighting
 {
 	public Emboar()
 	{
