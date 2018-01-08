@@ -17,7 +17,7 @@ public class PokemonFrame extends JFrame
 	public PokemonFrame(PokemonController appController)
 	{
 		super();
-		this.appController = appController;
+		this.setAppController(appController);
 		appPanel = new PokemonPanel(appController);
 		
 		setupFrame();
@@ -25,10 +25,20 @@ public class PokemonFrame extends JFrame
 	
 	private void setupFrame()
 	{
-		this.setSize(500, 500);
+		this.setSize(500, 300);
 		this.setTitle("Pokemon");
 		this.setContentPane(appPanel);
 		this.setResizable(false);
 		this.setVisible(true);
+	}
+
+	public PokemonController getAppController()
+	{
+		return appController;
+	}
+
+	public void setAppController(PokemonController appController)
+	{
+		this.appController = appController;
 	}
 }
