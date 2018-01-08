@@ -1,7 +1,8 @@
 package pokemon.controller;
 
 import pokemon.view.*;
-import pokemon.model.Pokemon;
+import pokemon.model.*;
+import pokemon.model.pokemon.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -17,10 +18,33 @@ public class PokemonController
 	private List<Pokemon> pokedex;
 	private PopupDisplay popup;
 	private PokemonFrame appFrame;
+	private Pokemon pokemon;
+	
+	public PokemonController()
+	{
+		popup = new PopupDisplay();
+		appFrame = new PokemonFrame(this);
+		this.pokedex = new ArrayList<Pokemon>();
+		
+		fillPokeDex();
+	}
 	
 	public void start()
 	{
 		
+	}
+
+	public void fillPokeDex()
+	{
+		pokedex.add(new Beartic());
+		pokedex.add(new Charmander());
+		pokedex.add(new Cofagrigus());
+		pokedex.add(new Emboar());
+		pokedex.add(new Froslass());
+		pokedex.add(new Marowak());
+		pokedex.add(new Pignite());
+		pokedex.add(new Tepig());
+		pokedex.add(new TissueBox());
 	}
 	
 	public List<Pokemon> getPokedex()
