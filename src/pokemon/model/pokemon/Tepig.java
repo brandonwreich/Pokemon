@@ -5,19 +5,19 @@ import pokemon.model.types.Fire;
 
 public class Tepig extends Pokemon implements Fire
 {
-	Tepig()
+	public Tepig()
 	{
 		super(498, "Tepig");
 		setup();
 	}
 	
-	Tepig(String name)
+	public Tepig(String name)
 	{
 		super(498, name);
 		setup();
 	}
 	
-	Tepig(int number, String name)
+	public Tepig(int number, String name)
 	{
 		super(number, name);
 		setup();
