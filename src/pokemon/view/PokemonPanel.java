@@ -99,7 +99,7 @@ public class PokemonPanel extends JPanel
 
 		
 		//Combo Box
-//		pokedexDropdown = new JComboBox<Pokemon>();
+		pokedexDropdown = new JComboBox<Pokemon>();
 
 		
 		setupPanel();
