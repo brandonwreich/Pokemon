@@ -10,7 +10,7 @@ public class PopupDisplay
 
 		public PopupDisplay()
 		{
-			icon = new ImageIcon(getClass().getResource("PopupPika"));
+			icon = new ImageIcon(getClass().getResource("pokemon.view.images/PopupPika.png"));
 			windowTitle = "Ummmm";
 		}
 
