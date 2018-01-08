@@ -19,22 +19,23 @@ public class PokemonController
 	private PopupDisplay popup;
 	private PokemonFrame appFrame;
 	private Pokemon pokemon;
-	
+
 	public PokemonController()
 	{
+		this.pokedex = new ArrayList<Pokemon>();
+		buildPokeDex();
+
 		popup = new PopupDisplay();
 		appFrame = new PokemonFrame(this);
-		this.pokedex = new ArrayList<Pokemon>();
-		
-		fillPokeDex();
-	}
-	
-	public void start()
-	{
-		
+
 	}
 
-	public void fillPokeDex()
+	public void start()
+	{
+
+	}
+
+	public void buildPokeDex()
 	{
 		pokedex.add(new Beartic());
 		pokedex.add(new Charmander());
@@ -46,33 +47,34 @@ public class PokemonController
 		pokedex.add(new Tepig());
 		pokedex.add(new TissueBox());
 	}
-	
+
 	public List<Pokemon> getPokedex()
 	{
 		return pokedex;
 	}
-	
+
 	public boolean isValidInteger(String input)
 	{
 		boolean valid = false;
-		
+
 		try
 		{
 			Integer.parseInt(input);
 			valid = true;
 		}
-		catch(NumberFormatException error)
+		catch (NumberFormatException error)
 		{
 			popup.displayText("Only integer values are vaild: " + input + " is not.");
 		}
-		
+
 		return valid;
 	}
-	
+
 	public boolean isValidDouble(String input)
 	{
+
 		boolean valid = false;
-		
+
 		try
 		{
 			Double.parseDouble(input);
@@ -82,7 +84,19 @@ public class PokemonController
 		{
 			popup.displayText("Only double values are valid: " + input + " is not.");
 		}
-		
+
 		return valid;
+	}
+
+	public String[] convertPokedex()
+	{
+		String[] names = new String[pokedex.size()];
+
+		for (int index = 0; index < pokedex.size(); index++)
+		{
+			names[index] = pokedex.get(index).getName();
+		}
+
+		return names;
 	}
 }
