@@ -5,8 +5,8 @@ import pokemon.model.Pokemon;
 
 import javax.swing.JPanel;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 
@@ -28,6 +28,7 @@ public class PokemonPanel extends JPanel
 	private JLabel healthLabel;
 	private JLabel attackLabel;
 	private JLabel modifierLabel;
+	private JLabel iconLabel;
 	
 	private JTextField numberField;
 	private JTextField nameField;
@@ -75,6 +76,7 @@ public class PokemonPanel extends JPanel
 		healthLabel = new JLabel("Health");
 		attackLabel = new JLabel("Attack");
 		modifierLabel = new JLabel("Enhancment Modifier");
+		iconLabel = new JLabel("pokemon", new ImageIcon(getClass().getResource("pokemon.view.images/PokeBall.jpeg")), JLabel.CENTER);
 	
 		//TextFields
 		numberField = new JTextField(10);
@@ -83,25 +85,20 @@ public class PokemonPanel extends JPanel
 		attackField = new JTextField(10);
 		modifierField = new JTextField(10);
 
-		
 		//TextAreas
 		descriptionArea = new JTextArea(5, 15);
 		typeArea = new JTextArea(5, 15);
 
-		
 		//Buttons
 		saveButton = new JButton("Save");
 		resetButton = new JButton("Reset");
 
-		
 		//Check box
 		canEvolveBox = new JCheckBox();
 
-		
 		//Combo Box
 		pokedexDropdown = new JComboBox<Pokemon>();
 
-		
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -118,7 +115,8 @@ public class PokemonPanel extends JPanel
 		this.add(attackLabel);
 		this.add(healthLabel);
 		this.add(modifierLabel);
-		this.add(pictureLabel);		
+		this.add(pictureLabel);
+		this.add(iconLabel);
 		
 		//Text Fields
 		this.add(nameField);
@@ -271,6 +269,13 @@ public class PokemonPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		saveButton.addActionListener(new ActionListener()
+				{
+					public void actionFerformed(ActionEvent click)
+					{
+						
+					}
+			
+		});
 	}
 }
