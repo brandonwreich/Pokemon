@@ -250,6 +250,7 @@ public class PokemonPanel extends JPanel
 		// Health Field
 		healthField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		healthField.setEditable(false);
+		healthField.setEnabled(false);
 		healthField.setToolTipText("Helath Points");
 		appLayout.putConstraint(SpringLayout.EAST, healthField, 0, SpringLayout.EAST, nameField);
 		appLayout.putConstraint(SpringLayout.NORTH, healthField, 6, SpringLayout.SOUTH, attackField);
@@ -337,7 +338,13 @@ public class PokemonPanel extends JPanel
 
 			public void actionPerformed(ActionEvent click)
 			{
-
+				nameField.setText("");
+				numberField.setText("");
+				canEvolveBox.setSelected(false);
+				attackField.setText("");
+				healthField.setText("");
+				descriptionArea.setText("");
+				pokedexDropdown.setSelectedIndex(0);
 			}
 
 		});

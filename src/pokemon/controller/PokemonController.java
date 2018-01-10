@@ -37,6 +37,7 @@ public class PokemonController
 
 	public void buildPokeDex()
 	{
+		pokedex.add(new blank());
 		pokedex.add(new Beartic());
 		pokedex.add(new Charmander());
 		pokedex.add(new Cofagrigus());
