@@ -34,7 +34,9 @@ public class PokemonController
 	{
 
 	}
-
+/**
+ * Adds my pokemon into the pokedex
+ */
 	public void buildPokeDex()
 	{
 		pokedex.add(new blank());
@@ -48,12 +50,20 @@ public class PokemonController
 		pokedex.add(new Tepig());
 		pokedex.add(new TissueBox());
 	}
-
+/**
+ * Getter
+ * @return
+ */
 	public List<Pokemon> getPokedex()
 	{
 		return pokedex;
 	}
-
+/**
+ * Takes the input and makes sure that it is a valid integer
+ * @param input
+ * @return boolean value if the integer is valid
+ * If not valid a pop window will appear telling you it is not valid
+ */
 	public boolean isValidInteger(String input)
 	{
 		boolean valid = false;
@@ -70,7 +80,12 @@ public class PokemonController
 
 		return valid;
 	}
-
+/**
+ * Takes the input and makes sure that it is a valid double
+ * @param input
+ * @return boolean value if the double is valid
+ * If not valid a pop window will appear telling you it is not valid
+ */
 	public boolean isValidDouble(String input)
 	{
 
@@ -88,7 +103,10 @@ public class PokemonController
 
 		return valid;
 	}
-
+/**
+ * 
+ * @return
+ */
 	public String[] convertPokedex()
 	{
 		String[] names = new String[pokedex.size()];

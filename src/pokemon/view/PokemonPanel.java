@@ -93,7 +93,12 @@ public class PokemonPanel extends JPanel
 		setupLayout();
 		setupListeners();
 	}
-
+/**
+ * Will update the text fields based upon 
+ * which pokemon you selected in the combo box.
+ * 
+ * @param index
+ */
 	private void updatePokedexInfo(int index)
 	{
 		nameField.setText(appController.getPokedex().get(index).getName());
@@ -104,7 +109,9 @@ public class PokemonPanel extends JPanel
 		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
 		descriptionArea.setText(appController.getPokedex().get(index).toString());
 	}
-
+/**
+ * Sets up the J Combo Box
+ */
 	private void setupComboBox()
 	{
 		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel(appController.convertPokedex());
@@ -115,7 +122,9 @@ public class PokemonPanel extends JPanel
 	{
 		
 	}
-
+/**
+ * Initializes the elements
+ */
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
@@ -156,7 +165,10 @@ public class PokemonPanel extends JPanel
 	{
 
 	}
-
+/**
+ * Changes the color of the background 
+ * based upon the type of pokemon it is.
+ */
 	private void updateTypePanels()
 	{
 		String[] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
@@ -186,7 +198,11 @@ public class PokemonPanel extends JPanel
 			}
 		}
 	}
-
+/**
+ * Sets up my layout.
+ * Gives each element the characteristics I want.
+ * Places my elements where I want them.
+ */
 	private void setupLayout()
 	{
 		// Name Label
@@ -327,7 +343,7 @@ public class PokemonPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-
+				
 			}
 
 		});

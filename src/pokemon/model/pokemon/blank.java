@@ -1,5 +1,10 @@
 package pokemon.model.pokemon;
-
+/**
+ * 
+ * Just made this class so that my combo box would have a space in front
+ * for the reset button :)
+ * 
+ */
 import pokemon.model.Pokemon;
 import pokemon.model.types.Derptastic;
 

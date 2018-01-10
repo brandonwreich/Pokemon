@@ -22,7 +22,9 @@ public class PokemonFrame extends JFrame
 		
 		setupFrame();
 	}
-	
+	/**
+	 * Creates the frame and sets the characteristics
+	 */
 	private void setupFrame()
 	{
 		this.setSize(500, 300);
@@ -31,12 +33,16 @@ public class PokemonFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-
+/**
+ * @return appController
+ */
 	public PokemonController getAppController()
 	{
 		return appController;
 	}
-
+/** 
+ * @param appController
+ */
 	public void setAppController(PokemonController appController)
 	{
 		this.appController = appController;
