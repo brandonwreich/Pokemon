@@ -63,7 +63,8 @@ public class PokemonPanel extends JPanel
 		healthLabel = new JLabel("Health");
 		attackLabel = new JLabel("Attack");
 		modifierLabel = new JLabel("Enhancment Modifier");
-		iconLabel = new JLabel("pokemon", new ImageIcon(getClass().getResource("pokemon.view.images/PokeBall.jpeg")), JLabel.CENTER);
+		iconLabel = new JLabel(new ImageIcon(getClass().getResource("pokemon.view.images/PokeBall.png")), SwingConstants.CENTER);
+
 
 		// TextFields
 		numberField = new JTextField(10);
@@ -79,6 +80,7 @@ public class PokemonPanel extends JPanel
 		// Buttons
 		saveButton = new JButton("Save");
 		resetButton = new JButton("Reset");
+		appLayout.putConstraint(SpringLayout.EAST, iconLabel, 132, SpringLayout.WEST, resetButton);
 
 		// Check box
 		canEvolveBox = new JCheckBox();
@@ -101,14 +103,24 @@ public class PokemonPanel extends JPanel
  */
 	private void updatePokedexInfo(int index)
 	{
+		//Update Basic Fields
 		nameField.setText(appController.getPokedex().get(index).getName());
 		canEvolveBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
 		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
 		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
 		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
 		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
+
+		//Update Text Areas
 		descriptionArea.setText(appController.getPokedex().get(index).toString());
+		typeArea.setText("");
+		
+		for(String current : appController.getPokedex().get(index).getPokemonTypes())
+		{
+			typeArea.append(current + "\n");
+		}
 	}
+	
 /**
  * Sets up the J Combo Box
  */
@@ -163,7 +175,22 @@ public class PokemonPanel extends JPanel
 
 	private void updateImage()
 	{
-
+		String path = "pokemon.view.images/";
+		String defaultName = "PokeBall";
+		String name = pokedexDropdown.getSelectedItem().toString();
+		String extension = ".png";
+		ImageIcon pokemonIcon;
+		
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		catch (NullPointerException missingImageFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		
+		iconLabel.setIcon(pokemonIcon);
 	}
 /**
  * Changes the color of the background 
@@ -220,7 +247,6 @@ public class PokemonPanel extends JPanel
 		// Evolve Label
 		evolveLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		evolveLabel.setEnabled(false);
-
 		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, -180, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, -11, SpringLayout.NORTH, attackLabel);
 
@@ -241,6 +267,11 @@ public class PokemonPanel extends JPanel
 		modifierLabel.setEnabled(false);
 		appLayout.putConstraint(SpringLayout.WEST, modifierLabel, 0, SpringLayout.WEST, nameLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, modifierLabel, 5, SpringLayout.NORTH, modifierField);
+		
+		//Icon Label
+		appLayout.putConstraint(SpringLayout.NORTH, iconLabel, 0, SpringLayout.NORTH, pictureLabel);
+		appLayout.putConstraint(SpringLayout.WEST, iconLabel, 32, SpringLayout.EAST, pictureLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, iconLabel, 110, SpringLayout.NORTH, pictureLabel);
 
 		// Name Text Field
 		nameField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
@@ -354,13 +385,7 @@ public class PokemonPanel extends JPanel
 
 			public void actionPerformed(ActionEvent click)
 			{
-				nameField.setText("");
-				numberField.setText("");
-				canEvolveBox.setSelected(false);
-				attackField.setText("");
-				healthField.setText("");
-				descriptionArea.setText("");
-				pokedexDropdown.setSelectedIndex(0);
+
 			}
 
 		});
