@@ -1,5 +1,6 @@
 package pokemon.model;
 
+import java.util.ArrayList;
 /**
  * 
  * @author Brandon Reich
@@ -21,14 +22,20 @@ public abstract class Pokemon
 		this.number = number;
 	}
 
-	public final String[] getPokemonTypes()
+	public String[] getPokemonTypes()
 	{
-		Class<?>[] types = getClass().getInterfaces();
-		String[] pokeTypes = new String[types.length];
-
+		String [] types = null;
+		ArrayList<String>parentType = new ArrayList<String>();
+		Class<?> currentClass = this.getClass();
+		
+		while (currentClass.getSuperClass() != null)
+		{
+			Class<?> [] pokenTypes = getClass().getInterfaces();
+			types = new String [pokemonTypes.length];
+		
 		for (int index = 0; index < types.length; index++)
 		{
-			String currentInterface = types[index].getCanonicalName();
+			String currentInterface = pokemonTypes[index].getCanonicalName();
 			currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
 			pokeTypes[index] = currentInterface;
 		}
