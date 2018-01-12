@@ -1,6 +1,7 @@
 package pokemon.model;
 
 import java.util.ArrayList;
+
 /**
  * 
  * @author Brandon Reich
@@ -17,30 +18,54 @@ public abstract class Pokemon
 	private boolean canEvolve;
 
 	public Pokemon(int number, String name)
+
 	{
 		this.name = name;
 		this.number = number;
 	}
-
+	
+/**
+ * Changes the information when selecting a pokemon
+ * @return A pokemon with it's information
+ */
 	public String[] getPokemonTypes()
 	{
-		String [] types = null;
-		ArrayList<String>parentType = new ArrayList<String>();
+		//Declare Data members
+		String[] types = null;
+		ArrayList<String> parentType = new ArrayList<String>();
 		Class<?> currentClass = this.getClass();
-		
-		while (currentClass.getSuperClass() != null)
+	
+		while (currentClass.getSuperclass() != null)
 		{
-			Class<?> [] pokenTypes = getClass().getInterfaces();
-			types = new String [pokemonTypes.length];
+			//Builds the array
+			Class<?> [] pokemonTypes = getClass().getInterfaces();
+			types = new String[pokemonTypes.length];
+
+			//Loops through each type and gets the name
+			//Takes all unesscerary stuff out
+			for (int index = 0; index < types.length; index++)
+			{
+				String currentInterface = pokemonTypes[index].getCanonicalName();
+				currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
+				
+				//Checks to see if it is in the list, if not it adds it
+				if (!parentType.contains(currentInterface))
+				{
+					parentType.add(currentInterface);
+				}
+			}
+
+			currentClass = currentClass.getSuperclass();
+		}
 		
-		for (int index = 0; index < types.length; index++)
+		types = new String[parentType.size()];
+
+		for (int index = 0; index < parentType.size(); index++)
 		{
-			String currentInterface = pokemonTypes[index].getCanonicalName();
-			currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
-			pokeTypes[index] = currentInterface;
+			types[index] = parentType.get(index);
 		}
 
-		return pokeTypes;
+		return types;
 	}
 
 	public String toString()

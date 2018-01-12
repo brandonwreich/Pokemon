@@ -7,7 +7,7 @@ public class Cofagrigus extends Pokemon implements Ghost
 {
 	public Cofagrigus()
 	{
-		super(563, "Cofarigus");
+		super(563, "Cofagrigus");
 		setup();
 	}
 	
