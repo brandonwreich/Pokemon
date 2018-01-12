@@ -1,12 +1,13 @@
 package pokemon.view;
 
-import pokemon.controller.PokemonController;
-import pokemon.model.Pokemon;
+import pokemon.controller.*;
+import pokemon.model.*;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.Font;
 
 import javax.swing.*;
 
@@ -87,6 +88,10 @@ public class PokemonPanel extends JPanel
 
 		// Combo Box
 		pokedexDropdown = new JComboBox<Pokemon>();
+		
+		//Panel Types
+		firstType = new JPanel();
+		secondType = new JPanel();
 
 		
 		setupComboBox();
@@ -132,8 +137,10 @@ public class PokemonPanel extends JPanel
 
 	private void setupTypePanels()
 	{
-		
+		firstType.setSize(50, 50);
+		secondType.setSize(50, 50);
 	}
+	
 /**
  * Initializes the elements
  */
@@ -171,6 +178,10 @@ public class PokemonPanel extends JPanel
 
 		// Combo Box
 		this.add(pokedexDropdown);
+		
+		//Panel Types
+		this.add(firstType);
+		this.add(secondType);
 	}
 
 	private void updateImage()
@@ -234,37 +245,37 @@ public class PokemonPanel extends JPanel
 	{
 		// Name Label
 		nameLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		nameLabel.setEnabled(false);
+		nameLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.WEST, nameLabel, 0, SpringLayout.WEST, numberLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 5, SpringLayout.NORTH, nameField);
 
 		// Number Label
 		numberLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		numberLabel.setEnabled(false);
+		numberLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.WEST, numberLabel, 0, SpringLayout.WEST, evolveLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 5, SpringLayout.NORTH, numberField);
 
 		// Evolve Label
 		evolveLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		evolveLabel.setEnabled(false);
+		evolveLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.EAST, evolveLabel, -180, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, evolveLabel, -11, SpringLayout.NORTH, attackLabel);
 
 		// Attack Label
 		attackLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		attackLabel.setEnabled(false);
+		attackLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.EAST, attackField, 0, SpringLayout.EAST, nameField);
 		appLayout.putConstraint(SpringLayout.WEST, attackLabel, 0, SpringLayout.WEST, nameLabel);
 
 		// Health Label
 		healthLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		healthLabel.setEnabled(false);
+		healthLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.WEST, healthLabel, 0, SpringLayout.WEST, nameLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, healthLabel, 5, SpringLayout.NORTH, healthField);
 
 		// Enhancement Modifier Label
 		modifierLabel.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		modifierLabel.setEnabled(false);
+		modifierLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.WEST, modifierLabel, 0, SpringLayout.WEST, nameLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, modifierLabel, 5, SpringLayout.NORTH, modifierField);
 		
@@ -275,36 +286,40 @@ public class PokemonPanel extends JPanel
 
 		// Name Text Field
 		nameField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		nameField.setEnabled(false);
+		nameField.setEnabled(true);
+		nameField.setEditable(true);
 		nameField.setToolTipText("Name");
 		appLayout.putConstraint(SpringLayout.EAST, nameField, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, nameField, 5, SpringLayout.NORTH, this);
 
 		// Number Field
 		numberField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		numberField.setEnabled(false);
+		numberField.setEnabled(true);
+		numberField.setEditable(true);
 		numberField.setToolTipText("Poke Number");
 		appLayout.putConstraint(SpringLayout.NORTH, numberField, 6, SpringLayout.SOUTH, nameField);
 		appLayout.putConstraint(SpringLayout.WEST, numberField, 0, SpringLayout.WEST, nameField);
 
 		// Attack Field
 		attackField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		attackField.setEnabled(false);
+		attackField.setEnabled(true);
+		attackField.setEditable(true);
 		attackField.setToolTipText("Attack Points");
 		appLayout.putConstraint(SpringLayout.NORTH, attackField, 28, SpringLayout.SOUTH, numberField);
 		appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 5, SpringLayout.NORTH, attackField);
 
 		// Health Field
 		healthField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		healthField.setEditable(false);
-		healthField.setEnabled(false);
+		healthField.setEditable(true);
+		healthField.setEnabled(true);
 		healthField.setToolTipText("Helath Points");
 		appLayout.putConstraint(SpringLayout.EAST, healthField, 0, SpringLayout.EAST, nameField);
 		appLayout.putConstraint(SpringLayout.NORTH, healthField, 6, SpringLayout.SOUTH, attackField);
 
 		// Enhancement Modifier Field
 		modifierField.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
-		modifierField.setEnabled(false);
+		modifierField.setEnabled(true);
+		modifierField.setEditable(true);
 		modifierField.setToolTipText("Enhancment Modifier");
 		appLayout.putConstraint(SpringLayout.NORTH, modifierField, 6, SpringLayout.SOUTH, healthField);
 		appLayout.putConstraint(SpringLayout.EAST, modifierField, 0, SpringLayout.EAST, nameField);
@@ -312,7 +327,7 @@ public class PokemonPanel extends JPanel
 		// Description Area
 		descriptionArea.setFont(new Font("Times", Font.BOLD | Font.PLAIN, 12));
 		descriptionArea.setEditable(false);
-		descriptionArea.setEnabled(false);
+		descriptionArea.setEnabled(true);
 		descriptionArea.setWrapStyleWord(true);
 		descriptionArea.setLineWrap(true);
 		descriptionArea.setDisabledTextColor(Color.BLACK);

@@ -38,7 +38,7 @@ public abstract class Pokemon
 		while (currentClass.getSuperclass() != null)
 		{
 			//Builds the array
-			Class<?> [] pokemonTypes = getClass().getInterfaces();
+			Class<?> [] pokemonTypes = currentClass.getInterfaces();
 			types = new String[pokemonTypes.length];
 
 			//Loops through each type and gets the name
@@ -46,7 +46,7 @@ public abstract class Pokemon
 			for (int index = 0; index < types.length; index++)
 			{
 				String currentInterface = pokemonTypes[index].getCanonicalName();
-				currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
+				currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".", "");
 				
 				//Checks to see if it is in the list, if not it adds it
 				if (!parentType.contains(currentInterface))
