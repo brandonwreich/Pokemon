@@ -1,4 +1,5 @@
 package pokemon.model.pokemon;
+
 /**
  * 
  * Just made this class so that my combo box would have a space in front
@@ -14,22 +15,26 @@ public class blank extends Pokemon implements Derptastic
 	{
 		super(000, "");
 	}
-	public blank (int number, String name)
+
+	public blank(int number, String name)
 	{
 		super(number, name);
 	}
+
 	@Override
 	public void derpDerpDerp()
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public int annoy(int amount)
 	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	@Override
 	public String sayDerpy()
 	{

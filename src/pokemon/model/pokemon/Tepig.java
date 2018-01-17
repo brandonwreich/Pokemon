@@ -10,13 +10,13 @@ public class Tepig extends Pokemon implements Fire
 		super(498, "Tepig");
 		setup();
 	}
-	
+
 	public Tepig(String name)
 	{
 		super(498, name);
 		setup();
 	}
-	
+
 	public Tepig(int number, String name)
 	{
 		super(number, name);
@@ -26,31 +26,31 @@ public class Tepig extends Pokemon implements Fire
 	public int Scorch()
 	{
 		int burnDegree = 522252;
-		
+
 		return burnDegree;
 	}
 
 	public int blind()
 	{
 		int brightness = 12;
-		
+
 		return brightness;
 	}
 
 	public int sizzle()
 	{
 		int heat = 456;
-		
+
 		return heat;
 	}
 
 	public int toast()
 	{
 		int toastness = 231;
-		
+
 		return toastness;
 	}
-	
+
 	protected void setup()
 	{
 		this.setAttackPoints(45);
@@ -58,5 +58,5 @@ public class Tepig extends Pokemon implements Fire
 		this.setEnhancementModifier(.23);
 		this.setHealthPoints(100);
 	}
-			
+
 }

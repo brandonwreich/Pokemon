@@ -10,13 +10,13 @@ public class Charmander extends Pokemon implements Fire
 		super(004, "Charmander");
 		setup();
 	}
-	
+
 	public Charmander(String name)
 	{
 		super(004, name);
 		setup();
 	}
-	
+
 	public Charmander(int number, String name)
 	{
 		super(number, name);
@@ -50,7 +50,7 @@ public class Charmander extends Pokemon implements Fire
 
 		return toastness;
 	}
-	
+
 	public void setup()
 	{
 		this.setAttackPoints(200);

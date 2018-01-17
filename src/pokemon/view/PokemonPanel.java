@@ -63,7 +63,6 @@ public class PokemonPanel extends JPanel
 		modifierLabel = new JLabel("Enhancment Modifier");
 		iconLabel = new JLabel(new ImageIcon(getClass().getResource("pokemon.view.images/PokeBall.png")), SwingConstants.CENTER);
 
-
 		// TextFields
 		numberField = new JTextField(10);
 		nameField = new JTextField(10);
@@ -85,27 +84,26 @@ public class PokemonPanel extends JPanel
 
 		// Combo Box
 		pokedexDropdown = new JComboBox<Pokemon>();
-		
-		//Panel Types
+
+		// Panel Types
 		firstType = new JPanel();
 		secondType = new JPanel();
 
-		
 		setupComboBox();
 		setupTypePanels();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
-/**
- * Will update the text fields based upon 
- * which pokemon you selected in the combo box.
- * 
- * @param index
- */
+
+	/**
+	 * Will update the text fields based upon which pokemon you selected in the combo box.
+	 * 
+	 * @param index
+	 */
 	private void updatePokedexInfo(int index)
 	{
-		//Update Basic Fields
+		// Update Basic Fields
 		nameField.setText(appController.getPokedex().get(index).getName());
 		canEvolveBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
 		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
@@ -113,19 +111,19 @@ public class PokemonPanel extends JPanel
 		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
 		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
 
-		//Update Text Areas
+		// Update Text Areas
 		descriptionArea.setText(appController.getPokedex().get(index).toString());
 		typeArea.setText("");
-		
-		for(String current : appController.getPokedex().get(index).getPokemonTypes())
+
+		for (String current : appController.getPokedex().get(index).getPokemonTypes())
 		{
 			typeArea.append(current + "\n");
 		}
 	}
-	
-/**
- * Sets up the J Combo Box
- */
+
+	/**
+	 * Sets up the J Combo Box
+	 */
 	private void setupComboBox()
 	{
 		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel(appController.convertPokedex());
@@ -137,10 +135,10 @@ public class PokemonPanel extends JPanel
 		firstType.setSize(50, 50);
 		secondType.setSize(50, 50);
 	}
-	
-/**
- * Initializes the elements
- */
+
+	/**
+	 * Initializes the elements
+	 */
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
@@ -175,8 +173,8 @@ public class PokemonPanel extends JPanel
 
 		// Combo Box
 		this.add(pokedexDropdown);
-		
-		//Panel Types
+
+		// Panel Types
 		this.add(firstType);
 		this.add(secondType);
 	}
@@ -188,7 +186,7 @@ public class PokemonPanel extends JPanel
 		String name = pokedexDropdown.getSelectedItem().toString();
 		String extension = ".png";
 		ImageIcon pokemonIcon;
-		
+
 		try
 		{
 			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
@@ -197,13 +195,13 @@ public class PokemonPanel extends JPanel
 		{
 			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
 		}
-		
+
 		iconLabel.setIcon(pokemonIcon);
 	}
-/**
- * Changes the color of the background 
- * based upon the type of pokemon it is.
- */
+
+	/**
+	 * Changes the color of the background based upon the type of pokemon it is.
+	 */
 	private void updateTypePanels()
 	{
 		String[] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
@@ -233,11 +231,11 @@ public class PokemonPanel extends JPanel
 			}
 		}
 	}
-/**
- * Sets up my layout.
- * Gives each element the characteristics I want.
- * Places my elements where I want them.
- */
+
+	/**
+	 * Sets up my layout. Gives each element the characteristics I want. Places my elements where I want
+	 * them.
+	 */
 	private void setupLayout()
 	{
 		// Name Label
@@ -275,8 +273,8 @@ public class PokemonPanel extends JPanel
 		modifierLabel.setEnabled(true);
 		appLayout.putConstraint(SpringLayout.WEST, modifierLabel, 0, SpringLayout.WEST, nameLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, modifierLabel, 5, SpringLayout.NORTH, modifierField);
-		
-		//Icon Label
+
+		// Icon Label
 		appLayout.putConstraint(SpringLayout.NORTH, iconLabel, 0, SpringLayout.NORTH, pictureLabel);
 		appLayout.putConstraint(SpringLayout.WEST, iconLabel, 32, SpringLayout.EAST, pictureLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, iconLabel, 110, SpringLayout.NORTH, pictureLabel);
@@ -346,16 +344,16 @@ public class PokemonPanel extends JPanel
 
 		// Can Evolve Check Box
 		canEvolveBox.setEnabled(false);
-		
+
 		if (canEvolveBox.isSelected() == true)
 		{
 			canEvolveBox.setToolTipText("Can Evolve");
 		}
-		else 
+		else
 		{
 			canEvolveBox.setToolTipText("Can't Evolve");
 		}
-		
+
 		appLayout.putConstraint(SpringLayout.WEST, canEvolveBox, 0, SpringLayout.WEST, nameField);
 		appLayout.putConstraint(SpringLayout.SOUTH, canEvolveBox, 25, SpringLayout.SOUTH, numberField);
 
@@ -386,7 +384,7 @@ public class PokemonPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				if(appController.isValidInteger(attackField.getText()) && appController.isValidInteger(healthField.getText()) && appController.isValidDouble(modifierField.getText()))
+				if (appController.isValidInteger(attackField.getText()) && appController.isValidInteger(healthField.getText()) && appController.isValidDouble(modifierField.getText()))
 				{
 					int selection = pokedexDropdown.getSelectedIndex();
 					int health = Integer.parseInt(healthField.getText());
@@ -394,8 +392,8 @@ public class PokemonPanel extends JPanel
 					double modify = Double.parseDouble(modifierField.getText());
 					String name = nameField.getText();
 					boolean evolve = canEvolveBox.isSelected();
-					
-					//Send to the controller to modify the pokemon
+
+					// Send to the controller to modify the pokemon
 					appController.updateSelected(selection, health, attack, evolve, modify, name);
 				}
 			}
@@ -412,7 +410,7 @@ public class PokemonPanel extends JPanel
 			}
 
 		});
-		
+
 		pokedexDropdown.addActionListener(new ActionListener()
 		{
 

@@ -10,19 +10,19 @@ public class Marowak extends Pokemon implements Fire, Ghost
 		super(105, "Marowak");
 		setup();
 	}
-	
+
 	public Marowak(String name)
 	{
 		super(105, name);
 		setup();
 	}
-	
+
 	public Marowak(int number, String name)
 	{
 		super(number, name);
 		setup();
 	}
-	
+
 	public int Scorch()
 	{
 		int burnDegree = 213151;
@@ -50,38 +50,38 @@ public class Marowak extends Pokemon implements Fire, Ghost
 
 		return toastness;
 	}
-	
+
 	public int scare(String booAmount)
 	{
 		int damage = 1;
-		
-		if(booAmount.length() > 5)
+
+		if (booAmount.length() > 5)
 		{
 			damage = 1200;
 		}
-		
+
 		else
 		{
 			damage = 2;
 		}
-		
+
 		return damage;
 	}
-	
+
 	public boolean disappear()
 	{
 		boolean didDisappear = false;
-		
+
 		return didDisappear;
 	}
-	
+
 	public boolean possess()
 	{
 		boolean didPossess = false;
-		
+
 		return didPossess;
 	}
-	
+
 	private void setup()
 	{
 		this.setAttackPoints(500);

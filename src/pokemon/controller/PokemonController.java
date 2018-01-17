@@ -26,16 +26,16 @@ public class PokemonController
 
 		popup = new PopupDisplay();
 		appFrame = new PokemonFrame(this);
-
 	}
 
 	public void start()
 	{
 
 	}
-/**
- * Adds my pokemon into the pokedex
- */
+
+	/**
+	 * Adds my pokemon into the pokedex
+	 */
 	public void buildPokeDex()
 	{
 		pokedex.add(new blank());
@@ -49,20 +49,24 @@ public class PokemonController
 		pokedex.add(new Tepig());
 		pokedex.add(new TissueBox());
 	}
-/**
- * Getter
- * @return
- */
+
+	/**
+	 * Getter
+	 * 
+	 * @return
+	 */
 	public List<Pokemon> getPokedex()
 	{
 		return pokedex;
 	}
-/**
- * Takes the input and makes sure that it is a valid integer
- * @param input
- * @return boolean value if the integer is valid
- * If not valid a pop window will appear telling you it is not valid
- */
+
+	/**
+	 * Takes the input and makes sure that it is a valid integer
+	 * 
+	 * @param input
+	 * @return boolean value if the integer is valid If not valid a pop window will appear telling you
+	 *         it is not valid
+	 */
 	public boolean isValidInteger(String input)
 	{
 		boolean valid = false;
@@ -79,12 +83,14 @@ public class PokemonController
 
 		return valid;
 	}
-/**
- * Takes the input and makes sure that it is a valid double
- * @param input
- * @return boolean value if the double is valid
- * If not valid a pop window will appear telling you it is not valid
- */
+
+	/**
+	 * Takes the input and makes sure that it is a valid double
+	 * 
+	 * @param input
+	 * @return boolean value if the double is valid If not valid a pop window will appear telling you it
+	 *         is not valid
+	 */
 	public boolean isValidDouble(String input)
 	{
 
@@ -102,10 +108,11 @@ public class PokemonController
 
 		return valid;
 	}
-/**
- * 
- * @return
- */
+
+	/**
+	 * 
+	 * @return
+	 */
 	public String[] convertPokedex()
 	{
 		String[] names = new String[pokedex.size()];
@@ -117,11 +124,11 @@ public class PokemonController
 
 		return names;
 	}
-	
+
 	public void updateSelected(int selection, int health, int attack, boolean evolve, double modify, String name)
 	{
 		Pokemon selected = pokedex.get(selection);
-		
+
 		selected.setAttackPoints(attack);
 		selected.setCanEvolve(evolve);
 		selected.setEnhancementModifier(modify);

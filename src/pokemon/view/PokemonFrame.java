@@ -13,15 +13,16 @@ public class PokemonFrame extends JFrame
 {
 	private PokemonController appController;
 	private PokemonPanel appPanel;
-	
+
 	public PokemonFrame(PokemonController appController)
 	{
 		super();
 		this.setAppController(appController);
 		appPanel = new PokemonPanel(appController);
-		
+
 		setupFrame();
 	}
+
 	/**
 	 * Creates the frame and sets the characteristics
 	 */
@@ -33,16 +34,18 @@ public class PokemonFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-/**
- * @return appController
- */
+
+	/**
+	 * @return appController
+	 */
 	public PokemonController getAppController()
 	{
 		return appController;
 	}
-/** 
- * @param appController
- */
+
+	/**
+	 * @param appController
+	 */
 	public void setAppController(PokemonController appController)
 	{
 		this.appController = appController;

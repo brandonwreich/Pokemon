@@ -23,32 +23,33 @@ public abstract class Pokemon
 		this.name = name;
 		this.number = number;
 	}
-	
-/**
- * Changes the information when selecting a pokemon
- * @return A pokemon with it's information
- */
+
+	/**
+	 * Changes the information when selecting a pokemon
+	 * 
+	 * @return A pokemon with it's information
+	 */
 	public String[] getPokemonTypes()
 	{
-		//Declare Data members
+		// Declare Data members
 		String[] types = null;
 		ArrayList<String> parentType = new ArrayList<String>();
 		Class<?> currentClass = this.getClass();
-	
+
 		while (currentClass.getSuperclass() != null)
 		{
-			//Builds the array
-			Class<?> [] pokemonTypes = currentClass.getInterfaces();
+			// Builds the array
+			Class<?>[] pokemonTypes = currentClass.getInterfaces();
 			types = new String[pokemonTypes.length];
 
-			//Loops through each type and gets the name
-			//Takes all unesscerary stuff out
+			// Loops through each type and gets the name
+			// Takes all unesscerary stuff out
 			for (int index = 0; index < types.length; index++)
 			{
 				String currentInterface = pokemonTypes[index].getCanonicalName();
 				currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".", "");
-				
-				//Checks to see if it is in the list, if not it adds it
+
+				// Checks to see if it is in the list, if not it adds it
 				if (!parentType.contains(currentInterface))
 				{
 					parentType.add(currentInterface);
@@ -57,7 +58,7 @@ public abstract class Pokemon
 
 			currentClass = currentClass.getSuperclass();
 		}
-		
+
 		types = new String[parentType.size()];
 
 		for (int index = 0; index < parentType.size(); index++)

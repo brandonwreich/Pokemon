@@ -9,19 +9,19 @@ public class Emboar extends Pignite implements Fire, Fighting
 		super(500, "Emboar");
 		setup();
 	}
-	
+
 	public Emboar(String name)
 	{
 		super(500, name);
 		setup();
 	}
-	
+
 	public Emboar(int number, String name)
 	{
 		super(number, name);
 		setup();
 	}
-	
+
 	@Override
 	protected void setup()
 	{
