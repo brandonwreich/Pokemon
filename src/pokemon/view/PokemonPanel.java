@@ -87,6 +87,8 @@ public class PokemonPanel extends JPanel
 
 		// Panel Types
 		firstType = new JPanel();
+
+		
 		secondType = new JPanel();
 
 		setupComboBox();
@@ -132,8 +134,8 @@ public class PokemonPanel extends JPanel
 
 	private void setupTypePanels()
 	{
-		firstType.setSize(50, 50);
-		secondType.setSize(50, 50);
+		firstType.setSize(450, 300);
+		secondType.setSize(450, 300);
 	}
 
 	/**
@@ -229,7 +231,7 @@ public class PokemonPanel extends JPanel
 		{
 			if (types[1].equals("Fighting"))
 			{
-				secondType.setBackground(new Color(235, 78, 57));
+				secondType.setBackground(Color.CYAN);
 			}
 		}
 	}
@@ -377,6 +379,18 @@ public class PokemonPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, pictureLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, pokedexDropdown, -6, SpringLayout.NORTH, saveButton);
 		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, -10, SpringLayout.EAST, saveButton);
+
+		// First Type Panel
+		appLayout.putConstraint(SpringLayout.NORTH, firstType, 0, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, firstType, 0, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, firstType, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, firstType, 0, SpringLayout.EAST, this);
+
+		// Second Type Panel
+		appLayout.putConstraint(SpringLayout.NORTH, secondType, 0, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, secondType, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, secondType, 0, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, secondType, 0, SpringLayout.EAST, this);
 	}
 
 	private void setupListeners()

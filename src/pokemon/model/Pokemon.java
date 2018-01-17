@@ -43,11 +43,11 @@ public abstract class Pokemon
 			types = new String[pokemonTypes.length];
 
 			// Loops through each type and gets the name
-			// Takes all unesscerary stuff out
+			// Takes all extra stuff out
 			for (int index = 0; index < types.length; index++)
 			{
 				String currentInterface = pokemonTypes[index].getCanonicalName();
-				currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".", "");
+				currentInterface = currentInterface.replace("pokemon.model.types.", "");
 
 				// Checks to see if it is in the list, if not it adds it
 				if (!parentType.contains(currentInterface))
