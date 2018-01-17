@@ -1,7 +1,7 @@
 package pokemon.view;
 
-import pokemon.controller.PokemonController;
-import javax.swing.JFrame;
+import pokemon.controller.*;
+import javax.swing.*;
 
 /**
  * 

@@ -1,7 +1,7 @@
 package pokemon.model.pokemon;
 
-import pokemon.model.Pokemon;
-import pokemon.model.types.Fire;
+import pokemon.model.*;
+import pokemon.model.types.*;
 
 public class Charmander extends Pokemon implements Fire
 {

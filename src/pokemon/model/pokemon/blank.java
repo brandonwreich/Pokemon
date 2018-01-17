@@ -5,8 +5,8 @@ package pokemon.model.pokemon;
  * for the reset button :)
  * 
  */
-import pokemon.model.Pokemon;
-import pokemon.model.types.Derptastic;
+import pokemon.model.*;
+import pokemon.model.types.*;
 
 public class blank extends Pokemon implements Derptastic
 {

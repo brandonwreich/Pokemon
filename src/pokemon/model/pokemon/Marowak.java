@@ -1,8 +1,7 @@
 package pokemon.model.pokemon;
 
-import pokemon.model.Pokemon;
-import pokemon.model.types.Fire;
-import pokemon.model.types.Ghost;
+import pokemon.model.*;
+import pokemon.model.types.*;
 
 public class Marowak extends Pokemon implements Fire, Ghost
 {

@@ -4,8 +4,7 @@ import pokemon.view.*;
 import pokemon.model.*;
 import pokemon.model.pokemon.*;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * 

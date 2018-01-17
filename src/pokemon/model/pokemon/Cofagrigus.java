@@ -1,7 +1,7 @@
 package pokemon.model.pokemon;
 
-import pokemon.model.Pokemon;
-import pokemon.model.types.Ghost;
+import pokemon.model.*;
+import pokemon.model.types.*;
 
 public class Cofagrigus extends Pokemon implements Ghost
 {

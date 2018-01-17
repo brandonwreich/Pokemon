@@ -1,7 +1,7 @@
 package pokemon.model.pokemon;
 
-import pokemon.model.Pokemon;
-import pokemon.model.types.Ice;
+import pokemon.model.*;
+import pokemon.model.types.*;
 
 public class Beartic extends Pokemon implements Ice
 {
