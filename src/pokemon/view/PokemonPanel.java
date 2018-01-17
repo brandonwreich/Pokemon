@@ -389,7 +389,18 @@ public class PokemonPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				if(appController.isValidInteger(attackField.getText()) && appController.isValidInteger(healthField.getText()) && appController.isValidDouble(modifierField.getText()))
+				{
+					int selection = pokedexDropdown.getSelectedIndex();
+					int health = Integer.parseInt(healthField.getText());
+					int attack = Integer.parseInt(attackField.getText());
+					double modify = Double.parseDouble(modifierField.getText());
+					String name = nameField.getText();
+					boolean evolve = canEvolveBox.isSelected();
+					
+					//Send to the controller to modify the pokemon
+					appController.updateSelected(selection, health, attack, evolve, modify, name);
+				}
 			}
 
 		});
