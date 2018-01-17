@@ -187,10 +187,12 @@ public class PokemonPanel extends JPanel
 		String extension = ".png";
 		ImageIcon pokemonIcon;
 
+		// Will try to update the image
 		try
 		{
 			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
 		}
+		// If it doesn't work it will use the default image
 		catch (NullPointerException missingImageFile)
 		{
 			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
@@ -375,7 +377,6 @@ public class PokemonPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, pictureLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, pokedexDropdown, -6, SpringLayout.NORTH, saveButton);
 		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, -10, SpringLayout.EAST, saveButton);
-
 	}
 
 	private void setupListeners()
@@ -397,23 +398,18 @@ public class PokemonPanel extends JPanel
 					appController.updateSelected(selection, health, attack, evolve, modify, name);
 				}
 			}
-
 		});
 
 		resetButton.addActionListener(new ActionListener()
-
 		{
-
 			public void actionPerformed(ActionEvent click)
 			{
 
 			}
-
 		});
 
 		pokedexDropdown.addActionListener(new ActionListener()
 		{
-
 			public void actionPerformed(ActionEvent selection)
 			{
 				int selectedPokemonIndex = pokedexDropdown.getSelectedIndex();
@@ -424,5 +420,4 @@ public class PokemonPanel extends JPanel
 			}
 		});
 	}
-
 }
